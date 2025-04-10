@@ -4,26 +4,8 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-# Load data
-@st.cache_data
-def load_data():
-    # You would replace this with your actual data loading code
-    # For now, I'll create a mock dataframe based on your sample
-    data = {
-        'Номер счёта': ['750-67-8428', '226-31-3081', '631-41-3108'],
-        'Филиал': ['Alex', 'Giza', 'Alex'],
-        'Город': ['Yangon', 'Naypyitaw', 'Yangon'],
-        'Пол': ['Female', 'Female', 'Female'],
-        'Цена за единицу': [74.69, 15.28, 46.33],
-        'Количество': [7, 5, 7],
-        'Продажи': [548.97, 80.22, 340.53],
-        'Дата': ['1/5/2019', '3/8/2019', '3/3/2019'],
-        'Валовая прибыль': [26.14, 3.82, 16.22],
-        'Рейтинг': [9.1, 9.6, 7.4]
-    }
-    return pd.DataFrame(data)
 
-df = load_data()
+df = pd.read_csv("sales.csv")
 
 # Convert date column to datetime
 df['Дата'] = pd.to_datetime(df['Дата'])
